@@ -1,7 +1,11 @@
 //Author Sarah Carroll
-//Date :20/09/2017
+//Date :21/09/2017
 
-// Adapter from: http://wiki.c2.com/?FizzBuzzTest
+/* Adapter from: https://stackoverflow.com/questions/20895552/how-to-read-input-from-console-line
+https://golang.org/pkg/fmt/
+https://www.youtube.com/watch?v=gh1yOouqFs0
+
+*/
 
 package main
 
@@ -17,9 +21,10 @@ package main
         //rand.Seed(20) 
 
         for guessesTaken < 6{
-
+            //fmt.Scanf()
             fmt.Println("\nTake a guess.") // There are four spaces in front of print.
-            fmt.Scanf("%d",&guess)
+            fmt.Scanf("%d\n",&guess)
+            //fmt.Scanf()
         
             //guessesTaken++;
         
