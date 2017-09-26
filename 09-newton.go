@@ -25,13 +25,21 @@ func SquareRoot(x float64) float64 {
 }
 
 func main() {
-    times := 15
+    times := 16
+	delta := float64(0.000001)
     for i := 0; i < times; i++ {
         squareroot := SquareRoot(float64(i))
         newton     := Newton(float64(i))
         fmt.Println(i, "squared:")
         fmt.Println("  SquareRoot:", squareroot)
         fmt.Println("  Newton    :", newton)
-        fmt.Println("  Difference:", math.Abs(squareroot-newton))
-    }
+		diff := math.Abs(squareroot-newton)
+		if diff == 0.0 {
+	        fmt.Println("  Difference: 0.0")
+		} else if diff < delta {
+	        fmt.Println("  Difference: 0.0 [", diff, "< DELTA of",delta,"]")
+		} else {
+	        fmt.Println("  Difference:", diff)
+		}
+	}
 }
