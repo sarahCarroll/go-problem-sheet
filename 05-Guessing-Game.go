@@ -9,14 +9,22 @@ https://www.youtube.com/watch?v=gh1yOouqFs0
 
 package main
 
-	import "fmt"
-    //import "math/rand"
+	import( "fmt"
+         "time"
+          "math/rand")
 
     func main() {
         guessesTaken := 0
         guess :=0;
+        rand.Seed( time.Now().UnixNano())
+        var number  int
 
-        number:=5
+        number = rand.Intn(100)+1 
+
+        //fmt.Println(number)
+
+        //fmt.Print("Random Number is",number)
+        //number:=5
        
         //rand.Seed(20) 
 
@@ -42,7 +50,10 @@ package main
 
             }
                 guessesTaken++
-                fmt.Printf("Guesses taken= %d",guessesTaken)
+                fmt.Printf("Guesses taken= %d\n",guessesTaken)
          }
+        
+        fmt.Print("You guessed too many times:Random Number was ",number)
+        
 
     }
