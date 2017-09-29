@@ -15,10 +15,14 @@ func main() {
 
 	//variables
 	var i, n, large, small int
-	var nonPrimes [10]int
+	var nonPrimes [100]int
 	rand.Seed(time.Now().UnixNano())
 
-	for i = 0; i < 10; i++ {
+	fmt.Println("\nNumber in the list.") // There are four spaces in front of print.
+	fmt.Scanf("%d\n", &n)
+
+	//list of n random numbers usign rand.seed
+	for i = 0; i < n; i++ {
 		nonPrimes[i] = (rand.Intn(100) + 1)
 	}
 	/*for i = 0; i < 10; i++ {
@@ -26,12 +30,15 @@ func main() {
 	}*/
 	//list in the form of an array
 	//nonPrimes := [8]int{9,12,6,14,1,10,4,8}
+	fmt.Print("List = ")
 
-	fmt.Println("List =", nonPrimes)
+	for i = 0; i < n; i++ {
+		fmt.Printf("%d ", nonPrimes[i])
+	}
 
-	n = len(nonPrimes)
+	//n = len(nonPrimes)
 
-	fmt.Println("Length of List =", n)
+	fmt.Println("\nLength of List =", n)
 
 	//set smallest and largest
 	small = 999999
