@@ -1,37 +1,45 @@
-//Author Sarah Carroll
-//Date :21/09/2017
-
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/big"
+)
 
-func factorial(x uint64) uint64 { //uint64 works for large integers
-	if x == 0 {
-		return 1
+func calcFactorial(x *big.Int) *big.Int {
+	n := big.NewInt(1)
+	if x.Cmp(big.NewInt(0)) == 0 {
+		return n
 	}
-	
-	return x * factorial(x-1)
+	return n.Mul(x, calcFactorial(n.Sub(x, n)))
 }
 
 func main() {
-	var calcFactorial uint64
-	var total uint64
-	var rem uint64
-	
-	x := uint64(15)
-	
-	calcFactorial = factorial(x)
-	fmt.Println("The Factorial of", x, " = ", calcFactorial)
-	
-	total = 0
-	
-	//for loop doesnt need ()
-	for calcFactorial > 0 {
-		rem = calcFactorial % 10
-		total = total + rem
-		calcFactorial = calcFactorial / 10
+
+	f := big.NewInt(100)  // Create a Big Int, value 100
+	r := calcFactorial(f) // Calculate 100!
+
+	fmt.Println("The Factorial of", f, " = ", r)
+
+	total := big.NewInt(0)
+	ten := big.NewInt(10)
+	zero := big.NewInt(0)
+	rem := big.NewInt(0)
+	//quot  := big.NewInt(0)
+
+	for r.Cmp(zero) > 0 {
+		//		fmt.Println("pre r  =",r)
+		//		fmt.Println("TEN    =",ten)
+		rem = rem.Mod(r, ten)
+		//		fmt.Println("mod r  =",r)
+		//		fmt.Println("rem =",rem)
+		total.Add(total, rem)
+		//quot = r
+		//fmt.Println("quot =",quot)
+		r.Div(r, ten)
+		//r = quot
+		//		fmt.Println("post r =",r)
 	}
-	
-	fmt.Println("The Sum of the Factorial of", x, "=", total)
-	
+
+	fmt.Println("The Sum of the Factorial Digits of", f, "=", total)
+
 }
