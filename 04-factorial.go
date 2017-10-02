@@ -1,3 +1,10 @@
+// Author    :   Sarah Carroll
+// Student ID:   G00330821
+//
+// GO Program to find the large value of 100! and sum the individual digits.
+//
+// Uses math/big package
+
 package main
 
 import (
@@ -26,16 +33,16 @@ func main() {
 	rem := big.NewInt(0)
 	//quot  := big.NewInt(0)
 
-	for r.Cmp(zero) > 0 {
+	for r.Cmp(zero) > 0 { // loop until factorial reduced to zero
 		//		fmt.Println("pre r  =",r)
 		//		fmt.Println("TEN    =",ten)
-		rem = rem.Mod(r, ten)
+		rem = rem.Mod(r, ten) // get MOD of number / 10
 		//		fmt.Println("mod r  =",r)
 		//		fmt.Println("rem =",rem)
-		total.Add(total, rem)
+		total.Add(total, rem) // total individual digits
 		//quot = r
 		//fmt.Println("quot =",quot)
-		r.Div(r, ten)
+		r.Div(r, ten) // reduce the factorial by facot of 10
 		//r = quot
 		//		fmt.Println("post r =",r)
 	}
