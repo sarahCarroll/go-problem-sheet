@@ -1,6 +1,6 @@
 // Author    :   Sarah Carroll
 // Student ID:   G00330821
-//
+// https://golang.org/pkg/math/big/
 // GO Program to find the large value of 100! and sum the individual digits.
 //
 // Uses math/big package
